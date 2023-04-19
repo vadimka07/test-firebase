@@ -66,7 +66,8 @@ function handelSignInUserAccount(evt) {
 function createUser(auth, userEmail, userPassword, userName) {
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
     .then(cred => {
-      userId = cred.user.uid;
+      let userId = cred.user.uid;
+      console.log('userId', userId);
       //зберігаємо його облікові дані у сховище Database
       writeUserData(userId, userName, userEmail);
 
@@ -141,9 +142,10 @@ function checkUserAuth() {
     if (user) {
       //витягуємо із сховища ID поточного користувача та записуємо його ім'я в userBarBtnText
       const userNameRef = ref(db, 'users/' + user.uid);
+      console.log('userNameRef', userNameRef)
       onValue(userNameRef, name => {
-        console.log('name', name)
-        const currentUserName = name.val();
+        const currentUserName = name.exportVal();
+        // const currentUserName = name.exists();
         console.log(currentUserName);
         refs.userBarBtnText.innerHTML = currentUserName.username;
         refs.userMobileBarBtnText.innerHTML = currentUserName.username;
