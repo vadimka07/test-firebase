@@ -1,0 +1,157 @@
+.header {
+  position: relative;
+  z-index: 20;
+}
+
+.mobile-menu-wrapper {
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: translateY(-100%);
+
+  @include transition(transform);
+
+  &.is-open {
+    transform: translateY(0%);
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile__menu {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  max-width: 375px;
+  min-width: 320px;
+  min-height: 800px;
+
+  height: 100vh;
+  padding-top: 84px;
+  background-image: url('../images/mob-menu@1x.png'),
+    radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      #4f2ee8 18.03%,
+      #ffffff 100%
+    );
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../images/mob-menu@2x.png'),
+      radial-gradient(
+        183.6% 183.01% at 59.76% -23.42%,
+        #4f2ee8 18.03%,
+        #ffffff 100%
+      );
+  }
+}
+
+.signup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 184px;
+  margin-top: 20px;
+  padding: 13px 14px;
+
+  background-color: $accent-color;
+  border: 1.5px solid $primary-black;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.signup-btn__text {
+  @include fonts(14px, 18px, 500, -0.04em, false, $primary-white);
+}
+
+.user__container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 130px;
+  gap: 9px;
+}
+
+.user__name {
+  @include fonts(22px, 29px, 700, -0.02em, false, $header-color-light);
+}
+
+.mobile__thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.display-none {
+  display: none;
+}
+.mobile__home,
+.mobile__shoplist {
+  display: inline-flex;
+  padding: 8px 16px;
+  margin-left: -16px;
+
+  @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-light);
+}
+
+.is-active-now {
+  font-weight: 700;
+  padding: 8px 16px;
+  background: $action-color;
+  border-radius: 36px;
+  color: $primary-black;
+  .shoplist__icon {
+    fill: $primary-black;
+  }
+}
+
+.mobile__home-item:not(:last-child) {
+  margin-bottom: 9px;
+}
+
+.mobile__shoplist {
+  align-items: start;
+}
+
+.shoplist__icon {
+  fill: $header-color-light;
+  padding-left: 4px;
+}
+
+.mobile__logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  position: absolute;
+  width: 118px;
+  height: 48px;
+  left: 20px;
+  bottom: 20px;
+  @include fonts(14px, 18px, 500, -0.04em, false, $primary-black);
+  border: 1.5px solid $primary-black;
+  border-radius: 18px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $header-color-light;
+    @include transition(color);
+    @include transition(background-color);
+  }
+}
+
+.mobile__logout.display-none {
+  display: none;
+}

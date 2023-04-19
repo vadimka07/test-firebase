@@ -1,0 +1,41 @@
+// normalize
+@import '~node_modules/modern-normalize/modern-normalize.css';
+// fonts
+@import './common/fonts';
+// vendors
+@import './vendors/visually-hidden';
+// utils
+@import './utils/variables';
+@import './utils/mixin';
+@import './utils/dark-light-themes.scss';
+// common
+@import './common/reset';
+@import './common/common';
+@import './common/container';
+@import './common/scrollbar';
+// components
+@import './components/main-grid';
+@import './components/bookshop';
+@import './components/book-card';
+@import './components/shoplist-card';
+@import './components/footer';
+// import Swiper styles
+@import 'swiper/swiper.scss';
+@import './components/support.scss';
+// header
+@import './components/header/header';
+// main
+@import './components/categories';
+@import './components/book-card';
+@import './components/to-top';
+@import './components/authorization-modal.scss';
+// shopping list
+@import './components/shopping-list';
+// modal
+@import './components/pop-up';
+// mob menu
+@import './components/mobile-menu';
+//spinner
+@import './components/spinner';
+//warning message
+@import "./components/warning-message";
